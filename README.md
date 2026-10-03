@@ -4,6 +4,8 @@ A [Scaffold-HBAR](https://github.com/hedera-dev/scaffold-hbar) template for auto
 
 The demo runs without an LLM or API key. The statistics service is deliberately small so developers can inspect the commercial protocol and replace the service and validator.
 
+**Live demo:** [Agent commerce dashboard](https://hedera-agent-commerce.vercel.app/) · [independent trade verifier](https://hedera-agent-commerce.vercel.app/verify). The hosted dashboard replays a completed testnet purchase using a bundled public receipt; the verifier checks its HCS messages, signatures, contract state, and payout against public Hedera endpoints. The agent runner remains a local command.
+
 **Start here:** [run the testnet demo](docs/GETTING_STARTED.md) · [understand the architecture](docs/ARCHITECTURE.md) · [read the protocol specification](docs/TECHSPEC.md) · [adapt the template](docs/CUSTOMIZE.md). The [public testnet evidence](#submission-evidence) below lets you inspect a completed trade before funding an account.
 
 ## Scaffold and run
@@ -43,7 +45,7 @@ Prices, spending caps, and contract balances use **tinybar (8 decimals)** becaus
 | `.local/agents.json`                                | Contains the testnet HCS-10 registry topic created during setup; it is generated automatically. |
 | `DEMO_MAX_PER_ORDER_HBAR`, `DEMO_TOTAL_BUDGET_HBAR` | Contract spending caps set at deployment.                                                       |
 
-Only `.env.example` belongs in Git. `.env`, `.local`, build output, and dependencies are ignored. For a hosted dashboard, provide a sanitized public trade receipt through your own storage rather than uploading `.local/agents.json`.
+Only `.env.example` belongs in Git among environment files. `.env`, `.local`, build output, and dependencies are ignored. The Vercel dashboard bundles the public-only receipt in `packages/nextjs/data/public-trade.json`; it never needs `.local/agents.json` or an operator key. Local scaffold runs use their own `.local/last-trade.json` after the demo.
 
 ## What happens on testnet
 
