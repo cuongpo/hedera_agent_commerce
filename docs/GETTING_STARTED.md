@@ -70,6 +70,8 @@ npm run next:dev
 
 Open `http://localhost:3000` for the dashboard and `http://localhost:3000/verify` for the independent checks. The office replay starts automatically and runs once through buyer → sellers → escrow → delivery → payout. Use Pause or the six step buttons to inspect a stage, or Replay again after it ends. Automatic playback is disabled when your system requests reduced motion. Its evidence links come from `.local/last-trade.json`; the scene is a replay of a completed trade, not a live agent monitor. The verifier reads the HCS quote and delivery through the mirror node, checks each recorded offer's EIP-712 signature and seller alias, recomputes hashes, and reads the contract order and transaction receipts. A complete run should pass **14 checks**. Its scope is the two offers recorded by this demo; it does not prove that these were the cheapest sellers in any global registry.
 
+You can also paste the public `.local/last-trade.json` into the [hosted verifier](https://hedera-agent-commerce.vercel.app/verify) to check this run without hosting the frontend. Paste only the receipt; `.env` and `.local/agents.json` contain keys.
+
 The repository's [public evidence table](../README.md#submission-evidence) shows a completed trade without requiring your credentials. Mirror-node contract-result URLs are used for Ethereum transaction hashes because they resolve directly.
 
 ## Recovery and common failures

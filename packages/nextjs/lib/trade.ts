@@ -19,31 +19,10 @@ import {
   validateArtifact,
   verifySellerQuote,
   type AppMessage,
-  type Task,
 } from "@agent-commerce/shared";
+import { publicReceiptSchema, type PublicReceipt } from "./receipt";
 
-export type PublicReceipt = {
-  network: "testnet";
-  chainId: number;
-  contractAddress: string;
-  buyer: { accountId: string; evmAddress: string };
-  sellers: { accountId: string; evmAddress: string }[];
-  task: Task;
-  orderId: number;
-  selectedSellerAccountId: string;
-  offers: {
-    sellerAccountId: string;
-    topicId: string;
-    sequence: number;
-    price: string;
-  }[];
-  conversationTopicId: string;
-  quoteSequence: number;
-  awardSequence: number;
-  deliverySequence: number;
-  transactions: { purchase: string; delivery: string; payout: string };
-  resultHash: string;
-};
+export type { PublicReceipt } from "./receipt";
 
 const root = path.resolve(process.cwd(), "../..");
 const mirrorBase =
@@ -52,10 +31,11 @@ const mirrorBase =
 const rpcUrl = process.env.HEDERA_RPC_URL || "https://testnet.hashio.io/api";
 
 export function readReceipt(): PublicReceipt | null {
-  if (process.env.VERCEL === "1") return hostedDemoReceipt as PublicReceipt;
+  if (process.env.VERCEL === "1")
+    return publicReceiptSchema.parse(hostedDemoReceipt);
   const file = path.join(root, ".local/last-trade.json");
   if (fs.existsSync(file))
-    return JSON.parse(fs.readFileSync(file, "utf8")) as PublicReceipt;
+    return publicReceiptSchema.parse(JSON.parse(fs.readFileSync(file, "utf8")));
   return null;
 }
 

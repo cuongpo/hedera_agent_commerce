@@ -5,6 +5,7 @@ import {
   verifyTrade,
   type Check,
 } from "../../lib/trade";
+import ReceiptVerifier from "./ReceiptVerifier";
 
 export const dynamic = "force-dynamic";
 
@@ -42,6 +43,15 @@ export default async function VerifyPage() {
         state from the JSON-RPC relay, then checks signatures, hashes,
         identities, and payment status.
       </p>
+      <ReceiptVerifier />
+      <div className="verify-example-title">
+        <div className="eyebrow">RECORDED EXAMPLE</div>
+        <h2>Completed testnet trade</h2>
+        <p>
+          This example is checked again against public Hedera data each time you
+          open the page.
+        </p>
+      </div>
       {!trade ? (
         <div className="card">
           <h2>No trade receipt yet</h2>

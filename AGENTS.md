@@ -9,7 +9,7 @@ Developer documentation: [first testnet run](docs/GETTING_STARTED.md), [architec
 - `packages/hardhat/contracts/AgentCommerce.sol` owns budget limits, EIP-712 quote verification, order states, refunds, review period, and disputes.
 - `packages/shared/src/index.ts` owns the versioned application message schemas, quote type/domain, canonical task and artifact hashes, and objective demo validator.
 - `packages/agents/src/setup.ts` creates and registers the three HCS-10 agents. `demo.ts` runs the buyer and two sellers with distinct accounts and actual HCS topics.
-- `packages/nextjs/lib/trade.ts` independently reads the mirror node and contract. The UI must never import secret agent files.
+- `packages/nextjs/lib/receipt.ts` validates public trade receipts. `packages/nextjs/lib/trade.ts` independently reads the mirror node and contract. The UI must never import secret agent files.
 
 ## Commands
 

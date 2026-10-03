@@ -890,6 +890,72 @@ footer {
 .verify-intro {
   margin-bottom: 38px;
 }
+.receipt-verifier {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 56px;
+}
+.receipt-verifier h2 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+.receipt-verifier p,
+.verify-example-title p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.receipt-verifier a {
+  color: var(--teal);
+  font-weight: 700;
+}
+.receipt-verifier form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 24px;
+}
+.receipt-verifier label {
+  font-size: 12px;
+  font-weight: 700;
+}
+.receipt-verifier textarea {
+  width: 100%;
+  resize: vertical;
+  color: var(--ink);
+  background: #0c1119;
+  border: 1px solid #41505e;
+  border-radius: 6px;
+  padding: 14px;
+  font:
+    12px/1.6 "DM Mono",
+    monospace;
+}
+.receipt-verifier textarea:focus {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+.receipt-verifier button {
+  border: 0;
+  cursor: pointer;
+}
+.receipt-verifier button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.submitted-result {
+  margin-top: 26px;
+}
+.verify-example-title {
+  margin-bottom: 22px;
+}
+.verify-example-title h2 {
+  margin: 10px 0 6px;
+  font-size: 31px;
+}
 .result-banner {
   display: flex;
   align-items: center;
