@@ -942,9 +942,17 @@ footer {
   border: 0;
   cursor: pointer;
 }
+.receipt-verifier button.ghost {
+  border: 1px solid #41505e;
+}
 .receipt-verifier button:disabled {
   opacity: 0.6;
   cursor: wait;
+}
+.receipt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 .submitted-result {
   margin-top: 26px;

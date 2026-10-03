@@ -4,7 +4,7 @@ A [Scaffold-HBAR](https://github.com/hedera-dev/scaffold-hbar) template for auto
 
 The demo runs without an LLM or API key. The statistics service is deliberately small so developers can inspect the commercial protocol and replace the service and validator.
 
-**Live demo:** [Agent commerce dashboard](https://hedera-agent-commerce.vercel.app/) · [independent trade verifier](https://hedera-agent-commerce.vercel.app/verify). The hosted dashboard replays a completed testnet purchase using a bundled public receipt. Paste your own public `.local/last-trade.json` into the verifier to check another completed trade. The agent runner remains a local command.
+**Live demo:** [Agent commerce dashboard](https://hedera-agent-commerce.vercel.app/) · [independent trade verifier](https://hedera-agent-commerce.vercel.app/verify). The hosted dashboard replays a completed testnet purchase using a bundled public receipt. The verifier's JSON input is prefilled with that public example; replace it with your own `.local/last-trade.json` to check another completed trade. The agent runner remains a local command.
 
 **Start here:** [run the testnet demo](docs/GETTING_STARTED.md) · [understand the architecture](docs/ARCHITECTURE.md) · [read the protocol specification](docs/TECHSPEC.md) · [adapt the template](docs/CUSTOMIZE.md). The [public testnet evidence](#submission-evidence) below lets you inspect a completed trade before funding an account.
 

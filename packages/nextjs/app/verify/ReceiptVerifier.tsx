@@ -1,7 +1,10 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import exampleReceipt from "../../data/public-trade.json";
 import type { Check } from "../../lib/trade";
+
+const exampleReceiptText = JSON.stringify(exampleReceipt, null, 2);
 
 type Result = {
   orderId: number;
@@ -11,7 +14,7 @@ type Result = {
 };
 
 export default function ReceiptVerifier() {
-  const [receiptText, setReceiptText] = useState("");
+  const [receiptText, setReceiptText] = useState(exampleReceiptText);
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState<Result | null>(null);
@@ -74,13 +77,12 @@ export default function ReceiptVerifier() {
       className="receipt-verifier"
       aria-labelledby="receipt-verifier-title"
     >
-      <div className="eyebrow">VERIFY ANOTHER TRADE</div>
-      <h2 id="receipt-verifier-title">Bring your own receipt.</h2>
+      <div className="eyebrow">VERIFY A PUBLIC RECEIPT</div>
+      <h2 id="receipt-verifier-title">Check a trade yourself.</h2>
       <p>
-        Paste the public <code>.local/last-trade.json</code> from any completed
-        testnet run. The verifier uses it to find the HCS and contract records,
-        then checks those records itself. Never paste <code>.env</code> or{" "}
-        <code>.local/agents.json</code>.{" "}
+        A public example is ready below. Click Verify receipt, or replace it
+        with <code>.local/last-trade.json</code> from your own completed testnet
+        run. Never paste <code>.env</code> or <code>.local/agents.json</code>.{" "}
         <a
           href="https://github.com/cuongpo/hedera_agent_commerce/blob/main/packages/nextjs/data/public-trade.json"
           target="_blank"
@@ -95,14 +97,27 @@ export default function ReceiptVerifier() {
           id="receipt-json"
           value={receiptText}
           onChange={(event) => setReceiptText(event.target.value)}
-          placeholder='{"network":"testnet","chainId":296,...}'
           rows={8}
           required
           spellCheck={false}
         />
-        <button className="button primary" type="submit" disabled={pending}>
-          {pending ? "Checking Hedera..." : "Verify receipt"}
-        </button>
+        <div className="receipt-actions">
+          <button className="button primary" type="submit" disabled={pending}>
+            {pending ? "Checking Hedera..." : "Verify receipt"}
+          </button>
+          <button
+            className="button ghost"
+            type="button"
+            disabled={pending}
+            onClick={() => {
+              setReceiptText(exampleReceiptText);
+              setResult(null);
+              setError("");
+            }}
+          >
+            Restore example
+          </button>
+        </div>
       </form>
       <div aria-live="polite">
         {error && <p className="error-note">{error}</p>}
