@@ -207,7 +207,7 @@ export default function OfficeReplay({ trade }: { trade: OfficeTrade | null }) {
           <h2 id="office-title">Watch a task become a paid order.</h2>
           <p>
             {trade
-              ? `Replay of completed testnet order #${trade.orderId}, using its local public receipt.`
+              ? `Replay of completed testnet order #${trade.orderId}, using its public receipt.`
               : "Illustrative walkthrough. Run the demo to replay your own testnet trade here."}
           </p>
         </div>

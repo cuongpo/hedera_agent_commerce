@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import hostedDemoReceipt from "../data/public-trade.json";
 import {
   Contract,
   JsonRpcProvider,
@@ -51,9 +52,11 @@ const mirrorBase =
 const rpcUrl = process.env.HEDERA_RPC_URL || "https://testnet.hashio.io/api";
 
 export function readReceipt(): PublicReceipt | null {
+  if (process.env.VERCEL === "1") return hostedDemoReceipt as PublicReceipt;
   const file = path.join(root, ".local/last-trade.json");
-  if (!fs.existsSync(file)) return null;
-  return JSON.parse(fs.readFileSync(file, "utf8")) as PublicReceipt;
+  if (fs.existsSync(file))
+    return JSON.parse(fs.readFileSync(file, "utf8")) as PublicReceipt;
+  return null;
 }
 
 export function mirrorContractResult(hash: string): string {

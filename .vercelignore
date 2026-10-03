@@ -1,0 +1,16 @@
+.env
+.env.*
+**/.env
+**/.env.*
+.local/
+**/.local/
+node_modules/
+**/node_modules/
+**/.next/
+**/dist/
+**/artifacts/
+**/cache/
+**/typechain-types/
+**/*.tsbuildinfo
+*.log
+**/*.log

@@ -1,0 +1,62 @@
+{
+  "network": "testnet",
+  "chainId": 296,
+  "contractAddress": "0x81987Deb28b575B55B7f03C2aAeCe2C445c2eda0",
+  "buyer": {
+    "accountId": "0.0.10834673",
+    "evmAddress": "0xB4BE6410d7d1C6b45673dbce2c630F867DC8169c"
+  },
+  "sellers": [
+    {
+      "accountId": "0.0.10834721",
+      "evmAddress": "0xE4052ECcf3E7C5086292dD5628274Ac4b82a5eF0"
+    },
+    {
+      "accountId": "0.0.10834728",
+      "evmAddress": "0xe4E8f8d0Dca053ad560E9788E0DEd3f533D71d67"
+    }
+  ],
+  "task": {
+    "capability": "commerce.stats.v1",
+    "records": [
+      {
+        "id": "alpha",
+        "value": 4
+      },
+      {
+        "id": "beta",
+        "value": 6
+      },
+      {
+        "id": "gamma",
+        "value": 8
+      }
+    ]
+  },
+  "orderId": 1,
+  "selectedSellerAccountId": "0.0.10834728",
+  "offers": [
+    {
+      "sellerAccountId": "0.0.10834721",
+      "topicId": "0.0.10834803",
+      "sequence": 2,
+      "price": "5000000"
+    },
+    {
+      "sellerAccountId": "0.0.10834728",
+      "topicId": "0.0.10834806",
+      "sequence": 2,
+      "price": "3000000"
+    }
+  ],
+  "conversationTopicId": "0.0.10834806",
+  "quoteSequence": 2,
+  "awardSequence": 3,
+  "deliverySequence": 4,
+  "transactions": {
+    "purchase": "0xe841d46c6b42779cbb7688498c3428ad72131ef58b08b39007ffd01b6ed68732",
+    "delivery": "0x45a3cca09d431cac42d9da7427ec09bb199e5fbf479980c70fbe2d39029eeecb",
+    "payout": "0x84f6489fa3c462b5b841cd4445d71f5d0bb22157b73a7cd8ee9acc99518d3c75"
+  },
+  "resultHash": "0xea2ee352098ba41aa6af71a8572694b41c422a5d5ce8a76564357bc91fcf9625"
+}
