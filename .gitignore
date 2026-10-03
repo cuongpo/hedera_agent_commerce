@@ -12,6 +12,7 @@ coverage/
 .envrc
 .local/
 *.tsbuildinfo
+**/next-env.d.ts
 *.log
 .vercel/
 .DS_Store
