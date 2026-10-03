@@ -18,14 +18,13 @@ npm create scaffold-hbar@latest -- agent-commerce-demo \
 cd agent-commerce-demo
 cp .env.example .env
 # Fill HEDERA_OPERATOR_ID and HEDERA_OPERATOR_KEY in .env
-npm install
 npm run agents:setup
 npm run hardhat:deploy -- --network hederaTestnet
 npm run agents:demo
 npm run next:dev
 ```
 
-Open `http://localhost:3000` for the trade dashboard and `http://localhost:3000/verify` for independent checks. The dashboard's interactive office scene automatically plays through the buyer, two sellers, and escrow once from the latest local public receipt; pause or choose a step to inspect it. Its links open the recorded HCS messages and contract transactions. Before setup, it shows an explicitly labeled illustration. For direct repository development, start with `npm install` and follow the same commands.
+The scaffold command installs dependencies. Open `http://localhost:3000` for the trade dashboard and `http://localhost:3000/verify` for independent checks. The dashboard's interactive office scene automatically plays through the buyer, two sellers, and escrow once from the latest local public receipt; pause or choose a step to inspect it. Its links open the recorded HCS messages and contract transactions. Before setup, it shows an explicitly labeled illustration. For direct repository development, start with `npm install` and follow the same commands.
 
 The expected happy path is two quotes (0.05 and 0.03 HBAR), seller B selected, and an `Autonomous trade settled` line with an order ID and public payout link. The verifier should pass 14 checks. Follow the [step-by-step guide](docs/GETTING_STARTED.md) if a command fails or a mirror-node result has not indexed yet.
 

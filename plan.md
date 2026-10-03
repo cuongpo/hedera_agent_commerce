@@ -93,6 +93,10 @@ Before submission, follow the guides from a clean external scaffold of `cuongpo/
 
 ## Bounty gate and scoring map
 
+### Public scaffold verification (October 3, 2026)
+
+The public `cuongpo/hedera_agent_commerce` repository was scaffolded into a clean temporary directory with `npm create scaffold-hbar@latest -- hedera-agent-commerce-public-smoke --template cuongpo/hedera_agent_commerce --frontend nextjs-app --solidity-framework hardhat --package-manager npm --yes --skip-hedera-skills --skip-install`. The CLI fetched the GitHub tarball, then `npm ci`, `npm run lint`, `npm test` (2 shared and 5 contract tests), and `npm run build` passed. The production server returned HTTP 200 on `/` and `/verify` without credentials. A second clean scaffold using the README command without `--skip-install` also completed its dependency installation and formatting. The already completed testnet trade and public transaction references are in the [README](README.md#submission-evidence); the fresh scaffold validation did not create a second funded testnet trade.
+
 | Bounty criterion                     | Concrete evidence in this template                                                                                                        |
 | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | External scaffold and valid manifest | Exact `npm create scaffold-hbar@latest -- --template cuongpo/hedera_agent_commerce` fresh-run log; `template.json` capabilities/defaults. |

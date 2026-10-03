@@ -20,10 +20,9 @@ npm create scaffold-hbar@latest -- agent-commerce-demo \
   --frontend nextjs-app --solidity-framework hardhat \
   --package-manager npm --yes --skip-hedera-skills
 cd agent-commerce-demo
-npm install
 ```
 
-If you are working directly in this repository, run `npm install` here instead. The app can already show its setup state with `npm run next:dev`; funded credentials are required only for the on-chain run.
+The CLI installs dependencies during scaffolding. If you are working directly in this repository, run `npm install` here instead. The app can already show its setup state with `npm run next:dev`; funded credentials are required only for the on-chain run.
 
 ## 2. Configure the operator
 
