@@ -1,0 +1,33 @@
+{
+  "name": "scaffold-hbar-agent-commerce",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "packages/shared",
+    "packages/hardhat",
+    "packages/agents",
+    "packages/nextjs"
+  ],
+  "scripts": {
+    "build": "npm run build -w @agent-commerce/shared && npm run compile -w @agent-commerce/hardhat && npm run check -w @agent-commerce/agents && npm run build -w @agent-commerce/nextjs",
+    "lint": "npm run build -w @agent-commerce/shared && npm run check -w @agent-commerce/agents && npm run lint -w @agent-commerce/hardhat && npm run lint -w @agent-commerce/nextjs",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\" --ignore-path .gitignore",
+    "test": "npm run build -w @agent-commerce/shared && npm run test -w @agent-commerce/shared && npm run test -w @agent-commerce/hardhat",
+    "hardhat:compile": "npm run compile -w @agent-commerce/hardhat",
+    "hardhat:test": "npm run test -w @agent-commerce/hardhat",
+    "hardhat:deploy": "npm run deploy -w @agent-commerce/hardhat --",
+    "next:dev": "npm run dev -w @agent-commerce/nextjs",
+    "next:build": "npm run build -w @agent-commerce/nextjs",
+    "agents:setup": "npm run setup -w @agent-commerce/agents",
+    "agents:demo": "npm run demo -w @agent-commerce/agents",
+    "agents:recover": "npm run recover -w @agent-commerce/agents",
+    "agents:check": "npm run check -w @agent-commerce/agents"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
+  },
+  "engines": {
+    "node": ">=20.18.3"
+  },
+  "packageManager": "npm@10.9.0"
+}

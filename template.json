@@ -1,0 +1,45 @@
+{
+  "name": "agent-commerce",
+  "description": "Autonomous HCS-10 agent procurement with bounded HBAR spending, escrow, and public verification.",
+  "create-scaffold-hbar": {
+    "capabilities": {
+      "frontend": ["nextjs-app"],
+      "solidityFramework": ["hardhat"],
+      "packageManager": ["npm"]
+    },
+    "defaults": {
+      "frontend": "nextjs-app",
+      "solidityFramework": "hardhat",
+      "packageManager": "npm"
+    },
+    "outro": {
+      "sections": [
+        {
+          "title": "Run an agent-to-agent trade",
+          "steps": [
+            {
+              "label": "Read setup and fund a testnet operator",
+              "text": "See README.md and copy .env.example to .env."
+            },
+            {
+              "label": "Create the three HCS-10 agents",
+              "command": "{run:agents:setup}"
+            },
+            {
+              "label": "Deploy the commerce contract",
+              "command": "{run:hardhat:deploy} -- --network hederaTestnet"
+            },
+            {
+              "label": "Run the autonomous buyer and sellers",
+              "command": "{run:agents:demo}"
+            },
+            {
+              "label": "Open the verifier dashboard",
+              "command": "{run:next:dev}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

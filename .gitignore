@@ -1,0 +1,17 @@
+node_modules/
+**/node_modules/
+**/dist/
+**/.next/
+**/artifacts/
+**/cache/
+**/typechain-types/
+coverage/
+.env
+.env.*
+!.env.example
+.envrc
+.local/
+*.tsbuildinfo
+*.log
+.vercel/
+.DS_Store
